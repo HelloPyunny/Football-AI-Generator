@@ -7,5 +7,6 @@ fastapi
 uvicorn
 jinja2
 pydantic
+scipy
 
 # pip3 install -r requirements.txt
