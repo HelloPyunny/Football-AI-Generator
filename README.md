@@ -19,28 +19,28 @@ This project generates the best formation for the selected 11 players based on t
 
 #### Prediction model
 
-- **`predict_position_grouped.py`**  
+- **`predict_position_grouped.py`** \
   Trains a classification model (e.g., `RandomForestClassifier`) to classify a player into a Position Group (FW, MF, DF, GK).
 
-- **`predict_position.py`**  
+- **`predict_position.py`** \
   Trains a classification model to predict a player’s detailed Position (e.g., ST, CB, etc.).
 
-- **`predict_ovr.py`**  
+- **`predict_ovr.py`** \
   Trains multiple regression models (one per Position) to predict a player’s OVR based on their stats when placed in a specific Position.
 
-- **`train_models.py`**  
+- **`train_models.py`** \
   Combine and runs all the prediction files above and save it to a Pickle file.
 
 ---
 
 ### Formation Algorithm
 
-- **`formation.py`**
+- **`formation.py`** \
   Saved 10 popular position into nodes and used it when needed
 
 ---
 
-- **`optimal_team_formation.py`**
+- **`optimal_team_formation.py`** \
   This module recommends the best football formation by maximizing total OVR based on each player's predicted performance across positions.
 
   Features
@@ -49,7 +49,7 @@ This project generates the best formation for the selected 11 players based on t
 
   - Evaluates all predefined formations
 
-  - Uses Hungarian algorithm to assign optimal positions
+  - Uses **Hungarian algorithm** to assign optimal positions
 
   Returns:
 
