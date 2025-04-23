@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+fastapi 
+uvicorn
+jinja2
+pydantic
+
+# pip3 install -r requirements.txt

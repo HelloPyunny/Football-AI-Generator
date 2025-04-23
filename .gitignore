@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+.env/
+
+# database
+*.db
+
+# VS Code
+.vscode/
+
+# excel and csv files
+*.xlsx
+*.xls
+*.csv
+
+# pkl files
+*.pkl
+*.pickle
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# PyCharm
+.idea/
+*.iml

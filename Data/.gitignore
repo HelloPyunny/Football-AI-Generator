@@ -1,0 +1,7 @@
+*.db
+
+player_data/*.csv
+
+old_data/*.csv
+
+MadK_data/*.xlsx

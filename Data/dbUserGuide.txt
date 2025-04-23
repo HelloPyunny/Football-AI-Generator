@@ -1,0 +1,9 @@
+sqlite3 players.db
+
+.tables
+
+PRAGMA table_info(players);
+
+SELECT * FROM players LIMIT 10;
+
+.exit
