@@ -1,6 +1,8 @@
 *.db
 
-player_data/*.csv
+player_data/play_styles.csv
+player_data/player_traits.csv
+player_data/role_style_mapping.csv
 
 old_data/*.csv
 

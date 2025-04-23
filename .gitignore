@@ -17,11 +17,6 @@ env/
 # VS Code
 .vscode/
 
-# excel and csv files
-*.xlsx
-*.xls
-*.csv
-
 # pkl files
 *.pkl
 *.pickle
