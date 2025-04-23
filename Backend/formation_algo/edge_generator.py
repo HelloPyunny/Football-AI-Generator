@@ -1,4 +1,7 @@
 # edge_generator.py
+'''
+This file is currently not used in the project.
+'''
 
 from formation import get_line_info
 
