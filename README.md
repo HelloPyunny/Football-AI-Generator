@@ -1,4 +1,4 @@
-# Football AI Genraltor
+# Football AI Generator
 
 This project generates the best formation for the selected 11 players based on their provided stats. It also allows users to generate their own FC25 stats. The project includes backend scripts for machine learning models and a frontend for user interaction.
 
