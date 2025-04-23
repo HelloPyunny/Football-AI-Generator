@@ -1,29 +1,86 @@
-# Best Formation Generator with Player Position Prediction
+# Football AI Genraltor
 
-This project generates the best formation for the selected 11 players.
+This project generates the best formation for the selected 11 players based on their provided stats. It also allows users to generate their own FC25 stats. The project includes backend scripts for machine learning models and a frontend for user interaction.
 
-Also this project predicts a player's **Position Group** (e.g., FW, MF, DF, GK), detailed **Position** (e.g., ST, CB), and **Overall Rating (OVR)** based on the player's stats. The workflow is divided into multiple scripts, each serving a distinct purpose.
+---
 
-## Scripts Overview
+## Features
 
-- **predict_position_grouped.py**  
-  Trains a classification model (e.g., RandomForestClassifier) to classify a player into a Position Group (FW, MF, DF, GK).
+- Predicts the best formation for a team of 11 players.
+- Classifies players into position groups (FW, MF, DF, GK) and detailed positions (ST, CB, etc.).
+- Predicts player OVR (Overall Rating) based on their stats and position.
+- Provides a user-friendly interface for interacting with the system.
 
-- **predict_position.py**  
-  Trains a classification model to predict a player’s detailed Position (ST, CB, etc.).
+---
 
-- **predict_ovr.py**  
+## Project Structure
+
+### Backend Scripts
+
+#### Prediction model
+
+- **`predict_position_grouped.py`**  
+  Trains a classification model (e.g., `RandomForestClassifier`) to classify a player into a Position Group (FW, MF, DF, GK).
+
+- **`predict_position.py`**  
+  Trains a classification model to predict a player’s detailed Position (e.g., ST, CB, etc.).
+
+- **`predict_ovr.py`**  
   Trains multiple regression models (one per Position) to predict a player’s OVR based on their stats when placed in a specific Position.
 
-- **main.py**  
-  Combines the above modules to:
+- **`train_models.py`**  
+  Combine and runs all the prediction files above and save it to a Pickle file.
 
-  - Predict a new player's Position Group.
-  - Predict the detailed Position.
-  - Compute the OVR for the predicted (or user-overridden) Position.
+---
 
-  The script also continuously prompts the user to view OVR predictions for alternative positions until the user chooses to exit.
+### Formation Algorithm
 
-Start server with FasAPI:
-uvicorn main:app --reload
-Start client: npm start
+- **`formation.py`**
+  Saved 10 popular position into nodes and used it when needed
+
+---
+
+- **`optimal_team_formation.py`**
+  This module recommends the best football formation by maximizing total OVR based on each player's predicted performance across positions.
+
+  Features
+
+  - Predicts per-position OVR for each player
+
+  - Evaluates all predefined formations
+
+  - Uses Hungarian algorithm to assign optimal positions
+
+  Returns:
+
+  - Best formation
+
+  - Total team OVR
+
+  - Player-position assignments
+
+  - Ranked list of all formations
+
+---
+
+- **`main.py`**  
+  A FastAPI backend for:
+
+  - Predicting player position, position group, and OVR from input stats
+
+  - Recommending the optimal formation for a given list of 11 players
+
+## How to Start
+
+_Install requirements_ \
+pip3 install -r requirements.txt
+
+_Set up Database_ \
+cd Data python3 db_setup.py
+
+_Train models and save it as .pkl_ \
+cd Backend/prediction_model python3 train_models.py
+
+_Run Backend and Server_ \
+cd Backend uvicorn main:app --reload \
+cd client npm start
